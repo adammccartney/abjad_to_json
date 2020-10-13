@@ -65,11 +65,11 @@ def rewrite_melody_voice_dict():
                 json_val_entry = f"{partial} : {val} "
                 dict_content += json_val_entry
                 if partial != partials[-1]:
-                    close_mid_key = f", MID \n"
+                    close_mid_key = f",  \n"
                 elif (partial == partials[-1]) and (phrase != phrases[2]):
-                    close_mid_key = f"\n}} , MID\n"
+                    close_mid_key = f"\n}} , \n"
                 elif (partial == partials[-1]) and (phrase == phrases[2]):
-                    close_mid_key = f"\n}} MID\n"
+                    close_mid_key = f"\n}} \n"
                 dict_content += close_mid_key
         if color == colors[0]:
             close_top_key = f"}}, \n"
