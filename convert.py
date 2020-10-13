@@ -31,28 +31,28 @@ partials = [1, 2, 3, 4, 5, 6, 8, 10]
 octaves = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
 def rewrite_chord_voice_dict():
-    open_bracket = f"{{ \n"
+    open_bracket = f"{{\n"
     dict_content = f"{open_bracket}"
     for color in colors:
-        top_key = f"\"{color}\" : {{ \n"
+        top_key = f"\"{color}\" : {{\n"
         dict_content += top_key
         for octave in octaves:
             val = chord_voice[color][octave].hertz
-            json_val_entry = f"\"{octave}\" : {val} , \n"
+            json_val_entry = f"\"{octave}\" : {val},\n"
             dict_content += json_val_entry
             if octave != octaves[-1]:
                 close_top_key = ""
             elif (octave == octaves[-1]) and (color != colors[-1]):
-                close_top_key = f"}}, \n"
+                close_top_key = f"}},\n"
             elif (octave == octaves[-1]) and (color == colors[-1]):
-                close_top_key = f"}} \n"
+                close_top_key = f"}}\n"
             dict_content += close_top_key
-    close_bracket = f"}} \n"
+    close_bracket = f"}}\n"
     dict_content += close_bracket
     return dict_content
 
 def rewrite_melody_voice_dict():
-    open_bracket = f"{{ \n"
+    open_bracket = f"{{\n"
     dict_content = f"{open_bracket}"
     for color in colors[:-2]:
         top_key = f"\"{color}\" : {open_bracket}"
