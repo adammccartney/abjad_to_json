@@ -38,7 +38,7 @@ def rewrite_chord_voice_dict():
         dict_content += top_key
         for octave in octaves:
             val = chord_voice[color][octave].hertz
-            json_val_entry = f"{octave} : {val} , \n"
+            json_val_entry = f"\"{octave}\" : {val} , \n"
             dict_content += json_val_entry
             if octave != octaves[-1]:
                 close_top_key = ""
@@ -62,7 +62,7 @@ def rewrite_melody_voice_dict():
             dict_content += mid_key
             for partial in partials:
                 val = melody_voice[color][phrase][partial].hertz
-                json_val_entry = f"{partial} : {val} "
+                json_val_entry = f"\"{partial}\" : {val} "
                 dict_content += json_val_entry
                 if partial != partials[-1]:
                     close_mid_key = f",  \n"
@@ -87,7 +87,7 @@ def rewrite_tremolo_voice_dict():
         top_key = f"\"{color}\" : {open_bracket}"
         dict_content += top_key
         for octave in octaves[1:-2]:
-            mid_key = f"{octave} : {open_bracket}"
+            mid_key = f"\"{octave}\" : {open_bracket}"
             dict_content += mid_key
             for phrase in phrases:
                 val = tremolo_voice[color][octave][phrase].hertz
